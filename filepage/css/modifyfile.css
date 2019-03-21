@@ -57,8 +57,7 @@ h2
   font-size: 20px;
   width: 10%;
   text-align: center;
-  background-color:#222629 ;
-  border:0;
+  background-color: #222629 ;
 }
 
 .buttonsList a:hover
@@ -145,7 +144,7 @@ input[type = submit]
 input[type = text]
 {
   border-radius: 6px;
-  border: 1px solid #A1EE2F;
+  border: 1px #222629 solid;
   width: 250px;
   height: 29px;
   max-width: 90%;

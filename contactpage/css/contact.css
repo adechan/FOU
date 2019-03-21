@@ -43,7 +43,7 @@ h2
   float: left;
   padding: 10px ;
   font-size: 20px;
-  width: 10%;
+  width: 20%;
 }
 
 .buttonsList a:hover
@@ -139,7 +139,7 @@ input[type = submit]
 	padding:8px 12px;
 
   top: 50px;
-  margin-left: 90px;
+  margin-left: 120px;
   position: relative;
 }
 
