@@ -43,7 +43,6 @@ header{
   text-align: center;
   background-color:#222629 ;
   border:0;
-
 }
 
 .buttonsList a:hover {
@@ -56,12 +55,14 @@ header{
   font-family: Helvetica;
   border-collapse: collapse;
   width: 100%;
+  text-decoration: none;
 }
 
 .files td,
 .files th {
   padding: 10px;
   color:white;
+  text-decoration: none;
 }
 
 .files td:nth-child(1){ width:25vw ;}/* name */
@@ -75,10 +76,14 @@ header{
   color: #222629;
   padding-top: 20px;
   padding-bottom: 12px;
+  text-decoration: none;
 }
+
+td > a {text-decoration: none;color: white; }
 
 .files tr:nth-child(even) {background-color: #474B4F;}
 .files tr:hover {background-color: #86C232;}
+
 
 /* DROPUP BUTTON*/
 .buttonContainer {
