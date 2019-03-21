@@ -1,0 +1,161 @@
+body{
+  margin:0px;
+  background-color: #6B6E70;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+header{
+   background-color: #222629;
+   border-bottom: #61892F 5px solid;
+   color: #86C232;
+   font-size: 45px;
+   font-family: 'Lobster',cursive;
+}
+
+
+/* TOP NAVIGATION buttons */
+.buttonsList {
+  width: 100vw;
+  background-color: #222629;
+  overflow: auto;
+  font-family: Helvetica;
+}
+
+.buttonsList a {
+  text-align: center ;
+  text-decoration: none;
+  color: white ;
+  float: left;
+  padding: 10px ;
+  font-size: 20px;
+  width: 10%;
+  text-align: center;
+}
+.buttonsList input{
+  text-align: center ;
+  text-decoration: none;
+  color: white ;
+  float: left;
+  padding: 10px ;
+  font-size: 20px;
+  width: 10%;
+  text-align: center;
+  background-color:#222629 ;
+  border:0;
+
+}
+
+.buttonsList a:hover {
+  background-color: #86C232;
+}
+
+
+/* FILES TABLE */
+.files {
+  font-family: Helvetica;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.files td,
+.files th {
+  padding: 10px;
+  color:white;
+}
+
+.files td:nth-child(1){ width:25vw ;}/* name */
+.files td:nth-child(2){ width:55vw ;} /*description */
+.files td:nth-child(3){ width:10vw ;}/* author */
+.files td:nth-child(4){ width:10vw ;}/*program */
+
+.files th {
+  background-color: #86C232;
+  text-align: left;
+  color: #222629;
+  padding-top: 20px;
+  padding-bottom: 12px;
+}
+
+.files tr:nth-child(even) {background-color: #474B4F;}
+.files tr:hover {background-color: #86C232;}
+
+/* DROPUP BUTTON*/
+.buttonContainer {
+  position: relative;
+  display: inline-block;
+  padding-left: 20px;
+  padding-top: 10px;
+}
+
+.dropButton {
+  background-color: #86C232;
+  color: white;
+  padding: 14px;
+  font-size: 14px;
+  border: none;
+}
+
+/*content must be hidden when the cursor is not hovering it*/
+.buttonContent {
+  display: none;
+  background-color: #f1f1f1;
+  position: absolute;
+  width:100%;
+  overflow:auto;
+  bottom: 50px;
+}
+
+/*the actual list in the button */
+.buttonContent a {
+  color: black;
+  padding: 12px 12px;
+  text-decoration: none;
+  display: block;
+}
+
+.buttonContent a:hover {background-color: #d8ffcc}
+
+.buttonContainer:hover .buttonContent {
+  display: block;
+}
+
+/* FOOTER */
+footer nav{
+  height:35px;
+  text-decoration: none;
+  bottom:0;
+  padding-top: 10px;
+  width:100%;
+  background-color: #222629;
+  border:0;
+  text-align: center;
+}
+nav a{
+  text-decoration: none;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* pages */
+.centerPagination{
+text-align: center;
+width: 100;
+padding-top:225px;
+}
+
+.pagination {display: inline-block;}
+
+.pagination a {
+  text-decoration: none;
+  color: white;
+  float: left;
+  padding:10px;
+  margin:7px;
+  background-color: #797C7E;
+}
+
+.pagination a:hover:not(.active) {background-color: #86C232;}
+
+.pagination a.active{ background: #86C232;}
