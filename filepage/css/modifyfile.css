@@ -1,0 +1,232 @@
+body
+{
+  margin: 0px;
+  background-color: #222629;
+  /* to hide the bottom scroll bar, but not the vertical one */
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+header
+{
+   background-color: #222629;
+   border-bottom: #61892F 5px solid;
+   color: #86C232;
+   font-size: 45px;
+   font-family: 'Lobster',cursive;
+}
+
+
+h2
+{
+  font-family: 'Noto Sans', sans-serif;
+  text-align: center;
+  width: 100%;
+  background-color: #86C232;
+  border: #61892F 1px solid;
+  padding-top: 0px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+}
+
+.buttonsList
+{
+  width: 100vw;
+  background-color: #222629;
+  font-family: Helvetica;
+}
+
+
+.buttonsList a
+{
+  text-align: center;
+  text-decoration: none;
+  color: white ;
+  float: left;
+  padding: 10px;
+  font-size: 20px;
+  width: 10%;
+}
+
+.buttonsList a:hover
+{
+  background-color: #86C232;
+}
+
+.buttonsList2
+{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  text-align: center;
+  font-family: 'Noto Sans', sans-serif;
+  padding-bottom: 10px;
+  justify-content: center;
+}
+
+.buttonsList2 a
+{
+  text-align: center;
+  text-decoration: none;
+  color: white;
+
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 40px;
+  padding-right: 40px;
+
+  font-size: 13px;
+  border: 1px black solid;
+  background-color:  #61892F;
+
+}
+
+.buttonsList2 a:hover
+{
+    background-color:#86C232;
+}
+
+.modifyproperties-box
+{
+    position: relative;
+    background-color: #6B6E70;
+    border: black 1px solid;
+    border-radius: 5px;
+
+    width: 450px;
+    height: 450px;
+    max-width: 80%;
+    max-height: 80%;
+
+    top: 20px;
+
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input[type = submit]
+{
+  font-family: 'Noto Sans', sans-serif;
+  font-size:15px;
+  cursor: pointer;
+  background-color: #A1EE2F;
+	border-radius:5px;
+	border:1px solid black;
+
+  /* to make bigger button */
+	padding:8px 12px;
+
+  margin-top: 30px;
+  margin-left: 100px;
+  position: relative;
+}
+
+#saveText:hover
+{
+  background-color: #61892F;
+  color: #A1EE2F;
+}
+
+input[type = text]
+{
+  border-radius: 6px;
+  border: 1px solid #A1EE2F;
+  width: 250px;
+  height: 29px;
+  max-width: 90%;
+}
+
+#nameId
+{
+  position: relative;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 13px;
+  color: white;
+  top: 10px;
+  left: 10px;
+}
+
+#authorId
+{
+  position: relative;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 13px;
+  color: white;
+  left: 10px;
+  top: 10px;
+}
+
+#typefileId
+{
+  position: relative;
+  left: 10px;
+  top: 10px;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 13px;
+  color: white;
+}
+
+#descriptionId
+{
+  position: relative;
+  left: 10px;
+  top: 10px;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 13px;
+  color: white;
+}
+
+#uploadedonId
+{
+  position: relative;
+  left: 10px;
+  top: 10px;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 13px;
+  color: white;
+}
+
+#versionId
+{
+  position: relative;
+  left: 10px;
+  top: 10px;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 13px;
+  color: white;
+}
+
+#tagId
+{
+  position: relative;
+  left: 10px;
+  top: 10px;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 13px;
+  color: white;
+}
+
+footer nav
+{
+  height:32px;
+  text-decoration: none;
+  bottom:0;
+  left:0;
+  position: fixed;
+  width:100%;
+  background-color: #6B6E70;
+  height: 15px;
+  border: 1px solid black;
+  padding: 8px;
+  text-align: center;
+}
+
+nav a
+{
+  text-decoration: none;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+}
