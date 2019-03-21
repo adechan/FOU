@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<meta name="description" content="Easy File Transfer">
+    <link href="css/addfile.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+		<meta name="author" content="Cosmin Sescu & Andreea Rindasu">
+		<title> Add files </title>
+
+	</head>
+	<body>
+		<header> FOU </header>
+		<div class = "buttonsList">
+			<a href = "#">My Files </a>
+		  <a href = "#">All Files </a>
+		  <a href = "../addfilepage/index.html">Add Files </a>
+		  <a href = "../searchpage/index.html">Search </a>
+		  <a href = "../logoutpage/index.html">Logout </a>
+		</div>
+
+    <h2> Add a file </h2>
+
+    <div class = "addfile-box">
+		<form action = "../addfilepage/uploaddone.html" method = "post" enctype = "multipart/form-data">
+
+		<div class = "selectFile">
+		  <p id = "select-text">	Select a file: </p><br>
+			<input type = "file" id = "select-file"> <br>
+		</div>
+
+		<div class = "nameFile">
+		    <p id = "name-text"> Name: </p><br>
+		    <textarea id = "textName"></textarea>
+		</div>
+
+		<div class = "descriptionFile">
+		    <p id = "description-text">	Description: </p><br>
+		    <textarea id = "textDescription"></textarea>
+		</div>
+
+		<div class = "uploadFile">
+				<input type = "submit" id = "upload-file" value = "Upload file"> <br>
+		</div>
+
+		</form>
+		</div>
+    <br>
+  	<br>
+  	<br>
+  	<br>
+
+    <footer>
+			<nav>
+				<a href="../contactpage/index.html">Contact</a>
+				<a href="../feedbackpage/index.html">Feedback</a>
+			</nav>
+		</footer>
+
+	</body>
+</html>
