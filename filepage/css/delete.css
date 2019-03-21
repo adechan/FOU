@@ -35,7 +35,18 @@ h2
   background-color: #222629;
   font-family: Helvetica;
 }
-
+.buttonsList input{
+  text-align: center ;
+  text-decoration: none;
+  color: white ;
+  float: left;
+  padding: 10px ;
+  font-size: 20px;
+  width: 10%;
+  text-align: center;
+  background-color:#222629 ;
+  border:0;
+}
 
 .buttonsList a
 {
