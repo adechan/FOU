@@ -1,3 +1,7 @@
+<?php
+session_start();
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -13,17 +17,17 @@
 	<body>
 		<header> FOU </header>
 		<div class="buttonsList">
-			<a href="../myAccountpage/myAccount.html">My Files </a>
-		  <a href="../myAccountpage/myAccount.html">All Files</a>
-		  <a href="../addfilepage/index.html">Add Files</a>
-		  <a href="../logoutpage/index.html">Logout</a>
+			<a href="../myAccountpage/index.php">My Files </a>
+		  <a href="../myAccountpage/index.php">All Files</a>
+		  <a href="../addfilepage/index.php">Add Files</a>
+		  <a href="../logoutpage/index.php">Logout</a>
 			<input type="text" placeholder="Search...">
 		</div>
 
     <h2> Add a file </h2>
 
     <div class = "addfile-box">
-		<form action = "../addfilepage/uploaddone.html" method = "post" enctype = "multipart/form-data">
+		<form action = "../addfilepage/uploaddone.php" method = "post" enctype = "multipart/form-data">
 
 		<div class = "selectFile">
 		  <p id = "select-text">	Select a file: </p><br>
@@ -53,8 +57,8 @@
 
     <footer>
 			<nav>
-				<a href="../contactpage/index.html">Contact</a>
-				<a href="../feedbackpage/index.html">Feedback</a>
+				<a href="../contactpage/index.php">Contact</a>
+				<a href="../feedbackpage/index.php">Feedback</a>
 			</nav>
 		</footer>
 

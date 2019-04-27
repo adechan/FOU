@@ -1,3 +1,7 @@
+<?php
+session_start();
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -12,17 +16,17 @@
 	<body>
 		<header> FOU </header>
 		<div class="buttonsList">
-			<a href="../myAccountpage/myAccount.html">My Files </a>
-		  <a href="../myAccountpage/myAccount.html">All Files</a>
-		  <a href="../addfilepage/index.html">Add Files</a>
-		  <a href="../logoutpage/index.html">Logout</a>
+			<a href="../myAccountpage/index.php">My Files </a>
+		  <a href="../myAccountpage/index.php">All Files</a>
+		  <a href="../addfilepage/index.php">Add Files</a>
+		  <a href="../logoutpage/index.php">Logout</a>
 			<input type="text" placeholder="Search...">
 		</div>
 
     <h2> Delete file </h2>
 
     <div class = "buttonsList2">
-      <a href = "../filepage/index.html"> Previous </a>
+      <a href = "../filepage/index.php"> Previous </a>
     </div>
 
     <div class = "delete-box">
@@ -33,7 +37,7 @@
 
       <div class = "buttonsList3">
         <a href = "#" id = "yes"> Yes </a>
-        <a href = "../filepage/index.html" id = "no"> No </a>
+        <a href = "../filepage/index.php" id = "no"> No </a>
       </div>
 
     </div>
@@ -45,8 +49,8 @@
 
 			<footer>
 				<nav>
-					<a href="../contactpage/index.html">Contact</a>
-					<a href="../feedbackpage/index.html">Feedback</a>
+					<a href="../contactpage/index.php">Contact</a>
+					<a href="../feedbackpage/index.php">Feedback</a>
 				</nav>
 			</footer>
 

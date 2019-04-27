@@ -1,3 +1,7 @@
+<?php
+session_start();
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -22,12 +26,12 @@
 
 			<div class="rightContainer">
 				<div class="textRightContainter">
-					<a href = "signinpage/index.html">
+					<a href = "signinpage/index.php">
 						<div class="button">
 							Login <!-- change site -->
 						</div>
 					</a>
-					<a href = "registerpage/index.html">
+					<a href = "registerpage/index.php">
 						<div class="button">
 							Register<!-- change site -->
 						</div>

@@ -1,3 +1,7 @@
+<?php
+session_start();
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,8 +15,8 @@
   <body>
     <header> FOU </header>
     <div class = "buttonsList">
-      <a href ="../registerpage/index.html"> Register </a>
-      <a href = "../signin/index.html"> Sign in </a>
+      <a href ="../registerpage/index.php"> Register </a>
+      <a href = "../signin/index.php"> Sign in </a>
     </div>
 
     <!-- HEADER -->
@@ -53,8 +57,8 @@
 
 <footer>
   <nav>
-    <a href="../contactpage/index.html">Contact</a>
-    <a href="../feedbackpage/index.html">Feedback</a>
+    <a href="../contactpage/index.php">Contact</a>
+    <a href="../feedbackpage/index.php">Feedback</a>
   </nav>
 </footer>
 
