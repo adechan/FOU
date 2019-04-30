@@ -1,5 +1,7 @@
 <?php
 session_start();
+if(!isset($_SESSION['USERNAME']))
+  header("Location: ../index.php?access=denied");
  ?>
 
 <!DOCTYPE html>

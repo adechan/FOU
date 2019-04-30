@@ -38,10 +38,10 @@
       session_start();
 
       //Create session variables
-      $SESSION['ID']= $row['id'];
-      $SESSION['USERNAME']= $row['username'];
+      $_SESSION['ID']= $row['id'];
+      $_SESSION['USERNAME']= $row['username'];
 
-      header("Location: ../index.php?loginSucces");
+      header("Location: ../myAccountpage/index.php?loginSucces");
       exit();
 
     }

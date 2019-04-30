@@ -34,7 +34,7 @@ session_start();
 
         </div>
 
-        <a href = "../addfilepage/index.html" id = "uploadMore"> Upload more? </a>
+        <a href = "../addfilepage/index.php" id = "uploadMore"> Upload more? </a>
     </div>
     <br>
   	<br>

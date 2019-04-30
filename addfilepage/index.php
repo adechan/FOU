@@ -27,11 +27,11 @@ session_start();
     <h2> Add a file </h2>
 
     <div class = "addfile-box">
-		<form action = "../addfilepage/uploaddone.php" method = "post" enctype = "multipart/form-data">
+		<form action = "../phpScripts/uploadScript.php" method = "post" enctype = "multipart/form-data">
 
 		<div class = "selectFile">
 		  <p id = "select-text">	Select a file: </p><br>
-			<input type = "file" id = "select-file"> <br>
+			<input type = "file" name="fileInput"  id = "select-file"> <br>
 		</div>
 
 		<div class = "nameFile">
@@ -45,7 +45,7 @@ session_start();
 		</div>
 
 		<div class = "uploadFile">
-				<input type = "submit" id = "upload-file" value = "Upload file"> <br>
+				<input type = "submit" name="upload-button" id = "upload-file" value = "Upload file"> <br>
 		</div>
 
 		</form>

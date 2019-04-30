@@ -16,7 +16,7 @@ session_start();
     <header> FOU </header>
     <div class = "buttonsList">
       <a href ="../registerpage/index.php"> Register </a>
-      <a href = "../signin/index.php"> Sign in </a>
+      <a href = "../signinpage/index.php"> Sign in </a>
     </div>
 
     <!-- HEADER -->

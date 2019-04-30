@@ -22,6 +22,15 @@
       exit();
     }
     */
+    //PUBLIC_FILES is the storage for all files.
+    //can't have a user with same name.
+    if($username=="PUBLIC_FILES")
+    {
+      header("Location: ../registerpage/index.php?error=invalidUsername");
+
+      exit();
+    }
+
     //Check username for special characters
     $pattern = "/[a-zA-Z_0-9]*/";
     if(!preg_match($pattern,$username))
@@ -83,6 +92,8 @@
       exit();
     }
 
+
+
     //Hash password using default algorithm(bCrypt)
     $hashPassword = password_hash($password,PASSWORD_DEFAULT);
 
@@ -91,13 +102,20 @@
     mysqli_stmt_bind_param($Statement,"sss",$email,$username,$hashPassword);
     mysqli_stmt_execute($Statement);
 
-    echo $username . $email . $hashPassword . "\n\n".$result;
-//    header("Location: ../myAccountpage/index.php");
 
     //Close connection
     mysqli_stmt_close($Statement);
     mysqli_close($connection);
 
+    //Create folder for user
+
+    $folderPath = "../FileStorage/" .$username;
+
+    mkdir($folderPath);
+
+    header("Location: ../myAccountpage/index.php");
+
+      exit();
   }
   else
   {

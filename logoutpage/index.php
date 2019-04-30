@@ -1,5 +1,7 @@
 <?php
 session_start();
+if(!isset($_SESSION['USERNAME']))
+  header("Location: ../index.php?access=denied");
  ?>
 
 <!DOCTYPE html>
@@ -32,7 +34,7 @@ session_start();
       </div>
 
       <div class = "buttonsList3">
-        <a href = "../registerpage/index.html" id = "yes"> Yes </a>
+        <a href = "../phpScripts/logoutScript.php" id = "yes"> Yes </a>
         <a href = "#" id = "no"> No </a>
       </div>
 
