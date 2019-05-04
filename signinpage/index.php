@@ -1,3 +1,7 @@
+<?php
+session_start();
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,8 +15,8 @@
   <body>
     <header> FOU </header>
     <div class = "buttonsList">
-      <a href ="../registerpage/index.html"> Register </a>
-      <a href = "../signin/index.html"> Sign in </a>
+      <a href ="../registerpage/index.php"> Register </a>
+      <a href = "../signinpage/index.php"> Sign in </a>
     </div>
 
     <!-- HEADER -->
@@ -20,29 +24,29 @@
     <!-- MAIN BOX -->
     <div class = "signin-box">
 
-    <form class = "form" action = "mainpage.html">
+    <form class = "form" action = "../phpScripts/loginScript.php" method="post">
 
       <!-- USERNAME -->
       <div id = "usernameId">
         Username: <br>
-        <input type = "text" id = "usernameTexT" name = "username" required>
+        <input type = "text" id = "usernameText" name = "userLogin" required>
       </div>
 
       <!-- PASSWORD -->
       <div id = "passwordId">
         Password: <br>
-        <input type = "password" id = "passwordText" name = "password" required>
+        <input type = "password" id = "passwordText" name = "passLogin" required>
       </div>
 
       <!-- SIGNIN BUTTON -->
       <div id = "signinButtonId">
-        <input type = "submit" value = "Sign in" id = "submitText" >
+        <input type = "submit" name ="login-button" value = "Sign in" id = "submitText" >
       </div>
 
     </form>
 
   <!-- DONT HAVE AN ACCOUNT text -->
-  <a href = "../registerpage/index.html" id = "dontHaveAccountId"> Don't have an account yet? </a>
+  <a href = "../registerpage/index.php" id = "dontHaveAccountId"> Don't have an account yet? </a>
 
 </div>
 <br>
@@ -52,8 +56,8 @@
 
 <footer>
   <nav>
-    <a href="../contactpage/index.html">Contact</a>
-    <a href="../feedbackpage/index.html">Feedback</a>
+    <a href="../contactpage/index.php">Contact</a>
+    <a href="../feedbackpage/index.php">Feedback</a>
   </nav>
 </footer>
 

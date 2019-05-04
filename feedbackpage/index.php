@@ -1,3 +1,9 @@
+<?php
+session_start();
+if(!isset($_SESSION['USERNAME']))
+  header("Location: ../index.php?access=denied");
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,10 +20,10 @@
     <header> FOU </header>
 
     <div class = "buttonsList">
-      <a href="../myAccountpage/myAccount.html">My Files </a>
-		  <a href="../myAccountpage/myAccount.html">All Files</a>
-		  <a href="../addfilepage/index.html">Add Files</a>
-		  <a href="../logoutpage/index.html">Logout</a>
+      <a href="../myAccountpage/index.php">My Files </a>
+		  <a href="../myAccountpage/index.php">All Files</a>
+		  <a href="../addfilepage/index.php">Add Files</a>
+		  <a href="../logoutpage/index.php">Logout</a>
 			<input type="text" placeholder="Search...">
     </div>
 
@@ -56,8 +62,8 @@
 
   <footer>
     <nav>
-      <a href="../contactpage/index.html">Contact</a>
-      <a href="../feedbackpage/index.html">Feedback</a>
+      <a href="../contactpage/index.php">Contact</a>
+      <a href="../feedbackpage/index.php">Feedback</a>
     </nav>
   </footer>
 

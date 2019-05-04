@@ -1,3 +1,7 @@
+<?php
+session_start();
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,8 +16,8 @@
 
     <header> FOU </header>
     <div class = "buttonsList">
-      <a href = "../registerpage/index.html"> Register </a>
-      <a href = "../signinpage/index.html"> Sign in </a>
+      <a href = "../registerpage/index.php"> Register </a>
+      <a href = "../signinpage/index.php"> Sign in </a>
     </div>
 
     <!-- HEADER -->
@@ -21,35 +25,35 @@
     <!-- MAIN BOX -->
     <div class = "register-box">
 
-    <form class = "form" action = "../signinpage/index.html">
+    <form class = "form" action = "../phpScripts/registerScript.php" method="post">
 
       <!-- USERNAME -->
       <div id = "usernameId">
         Username: <br>
-        <input type = "text" id = "usernameTexT" name ="username" required>
+        <input type = "text" id = "usernameText" name ="user" required>
       </div>
 
       <!-- PASSWORD -->
       <div id = "passwordId">
         Password: <br>
-        <input type = "password" id = "passwordText" name = "password" required>
+        <input type = "password" id = "passwordText" name = "pass" required>
       </div>
 
       <!-- CONFIRM PASSWORD -->
       <div id = "confirmPasswordId">
         Confirm password: <br>
-        <input type = "password" id = "confirmPasswordText" name = "confirmPassword" required>
+        <input type = "password" id = "confirmPasswordText" name = "passConfirm" required>
       </div>
 
       <!-- REGISTER BUTTON -->
       <div id = "registerButtonId">
-        <input type = "submit" value = "Create account" id = "submitText">
+        <input type = "submit" name="register-button" value = "Create account" id = "submitText" >
       </div>
 
     </form>
 
   <!-- ALREADY HAVE AN ACCOUNT text -->
-  <a href = "../signinpage/index.html" id = "alreadyAccountId"> Already have an account? </a>
+  <a href = "../signinpage/index.php" id = "alreadyAccountId"> Already have an account? </a>
 
 </div>
 <br>
@@ -59,8 +63,8 @@
 
 <footer>
   <nav>
-    <a href="../contactpage/index.html">Contact</a>
-    <a href="../feedbackpage/index.html">Feedback</a>
+    <a href="../contactpage/index.php">Contact</a>
+    <a href="../feedbackpage/index.php">Feedback</a>
   </nav>
 </footer>
 
