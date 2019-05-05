@@ -122,14 +122,14 @@ nav a
 #select-text
 {
   position: relative;
-  top:10px;
+  top: 10px;
   left: 20px;
   font-family: 'Noto Sans', sans-serif;
   font-size: 14px;
   color: white;
 }
 
-#textName
+#textTags
 {
   border: 1px solid #A1EE2F;
   border-radius: 6px;
@@ -141,10 +141,10 @@ nav a
   color: #1a1a1a;
 }
 
-#name-text
+#tags-text
 {
   position: relative;
-  top:-10px;
+  top:-15px;
   left: 20px;
   font-family: 'Noto Sans', sans-serif;
   font-size: 14px;

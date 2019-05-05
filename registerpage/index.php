@@ -27,6 +27,12 @@ session_start();
 
     <form class = "form" action = "../phpScripts/registerScript.php" method="post">
 
+      <!-- EMAIL -->
+      <div id = "emailId">
+        Email: <br>
+        <input type = "text" id = "emailText" name ="email" required>
+      </div>
+
       <!-- USERNAME -->
       <div id = "usernameId">
         Username: <br>
