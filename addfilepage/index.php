@@ -34,9 +34,9 @@ session_start();
 			<input type = "file" name="fileInput"  id = "select-file"> <br>
 		</div>
 
-		<div class = "nameFile">
-		    <p id = "name-text"> Name: </p><br>
-		    <textarea id = "textName"></textarea>
+		<div class = "tagsFile">
+		    <p id = "tags-text"> Tags: </p><br>
+		    <textarea id = "textTags"></textarea>
 		</div>
 
 		<div class = "descriptionFile">
