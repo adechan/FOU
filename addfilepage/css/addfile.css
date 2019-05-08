@@ -197,3 +197,10 @@ input[type=submit]
   background-color: #61892F;
   color: #A1EE2F;
 }
+
+.custom-select
+{
+  position: absolute;
+  top: 290px;
+  left: 110px;
+}
