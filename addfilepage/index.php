@@ -44,6 +44,14 @@ session_start();
 		    <textarea id = "textDescription"></textarea>
 		</div>
 
+    <div class="custom-select">
+      <select>
+        <option> Select type of file: </option>
+        <option value = "public"> Public </option>
+        <option value = "private"> Private </option>
+      </select>
+    </div>
+
 		<div class = "uploadFile">
 				<input type = "submit" name="upload-button" id = "upload-file" value = "Upload file"> <br>
 		</div>
