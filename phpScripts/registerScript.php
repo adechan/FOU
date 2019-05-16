@@ -2,26 +2,21 @@
 //if user got here by pressing the register button
   if( isset($_POST['register-button']))
   {
-    // TODO: Add email to registration form
-    // TODO: check email is correct
     // TODO:  check if mail exists in database
-    // TODO: DELETE dummy $email
-
 
     require 'database.php';
 
     $username = $_POST['user'];
     $password = $_POST['pass'];
     $passwordConfirmation = $_POST['passConfirm'];
+    $email = $_POST['email'];
 
-    //Check if email is valid
-    /*
     if(!filter_var($email,FILTER_VALIDATE_EMAIL))
     {
       header("Location: ../register.php?error=invalidmail");
       exit();
     }
-    */
+
     //PUBLIC_FILES is the storage for all files.
     //can't have a user with same name.
     if($username=="PUBLIC_FILES")
@@ -59,7 +54,7 @@
     }
 
     //If all ok
-    $sqlStatement="SELECT * FROM users WHERE username=?;";
+    $sqlStatement="SELECT * FROM users WHERE username=? OR email=?;";
     $Statement=mysqli_stmt_init($connection);
     if(!mysqli_stmt_prepare($Statement,$sqlStatement))
     {
@@ -67,18 +62,17 @@
       exit();
     }
 
-    mysqli_stmt_bind_param($Statement,"s",$username);
+    mysqli_stmt_bind_param($Statement,"ss",$username,$email);
     mysqli_stmt_execute($Statement);
     mysqli_stmt_store_result($Statement);
 
     //get number of returned rows
-    $result=1;
     $result = mysqli_stmt_num_rows($Statement);
 
     //if > 0 another user exists.
     if($result>0)
     {
-      header("Location: ../register.php?error=userExists");
+      header("Location: ../register.php?error=userOrEmailExists");
       exit();
     }
 
@@ -92,30 +86,22 @@
       exit();
     }
 
-
-
     //Hash password using default algorithm(bCrypt)
     $hashPassword = password_hash($password,PASSWORD_DEFAULT);
 
-    $email=$username."@gmail.com";
-
     mysqli_stmt_bind_param($Statement,"sss",$email,$username,$hashPassword);
     mysqli_stmt_execute($Statement);
-
 
     //Close connection
     mysqli_stmt_close($Statement);
     mysqli_close($connection);
 
     //Create folder for user
-
     $folderPath = "../FileStorage/" .$username;
-
     mkdir($folderPath);
 
-    header("Location: ../myAccountpage/index.php");
-
-      exit();
+    header("Location: ../index.php");
+    exit();
   }
   else
   {

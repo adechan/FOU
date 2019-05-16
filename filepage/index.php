@@ -28,9 +28,9 @@ if(!isset($_SESSION['USERNAME']))
     <h2> My file </h2>
 
     <div class = "buttonsList2">
-      <a href = "../filepage/modifyproperties.html"> Modify File</a>
+      <a href = "../filepage/modifyproperties.php"> Modify File</a>
       <a href = "#"> Download </a>
-      <a href = "../filepage/delete.html"> Delete </a>
+      <a href = "../filepage/delete.php"> Delete </a>
     </div>
 
 		<table class="detailsFile">

@@ -36,16 +36,16 @@ session_start();
 
 		<div class = "tagsFile">
 		    <p id = "tags-text"> Tags: </p><br>
-		    <textarea id = "textTags"></textarea>
+		    <textarea id = "textTags" name="tags"></textarea>
 		</div>
 
 		<div class = "descriptionFile">
 		    <p id = "description-text">	Description: </p><br>
-		    <textarea id = "textDescription"></textarea>
+		    <textarea id = "textDescription" name="descr"></textarea>
 		</div>
 
     <div class="custom-select">
-      <select>
+      <select name="isPublic">
         <option> Select type of file: </option>
         <option value = "public"> Public </option>
         <option value = "private"> Private </option>
