@@ -24,7 +24,7 @@ if(!isset($_SESSION['USERNAME']))
 			<input type="text" placeholder="Search...">
 		</div>
 
-    <?php require '../phpScripts/myAccountScript.php'; ?>
+    <?php require '../phpScripts/allFilesScript.php'; ?>
 
 
 			<!-- container for the dropup Group By button-->

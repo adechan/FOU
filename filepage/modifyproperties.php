@@ -19,7 +19,7 @@ if(!isset($_SESSION['USERNAME']))
 		<header> FOU </header>
 		<div class="buttonsList">
 			<a href="../myAccountpage/index.php">My Files </a>
-		  <a href="../myAccountpage/index.php">All Files</a>
+		  <a href="../allFilespage/index.php">All Files</a>
 		  <a href="../addfilepage/index.php">Add Files</a>
 		  <a href="../logoutpage/index.php">Logout</a>
 			<input type="text" placeholder="Search...">
@@ -28,26 +28,15 @@ if(!isset($_SESSION['USERNAME']))
     <h2> Modify Properties </h2>
 
     <div class = "buttonsList2">
-      <a href = "../filepage/index.html"> Previous </a>
+      <a href = "../filepage/index.php"> Previous </a>
     </div>
 
   	<div class = "modifyproperties-box">
-    <form class = "form" action = "#">
-
+    <form class = "form" action = "../phpScripts/modifyFileScript.php">
 
       <div id = "nameId">
         Name: <br>
-        <input type = "text" id = "nameTexT" name = "name" value = "Curs2">
-      </div>
-
-      <div id = "authorId">
-        Author: <br>
-        <input type = "text" id = "authorText" name = "author" value = "Buraga S">
-      </div>
-
-      <div id = "typefileId">
-        Type of file: <br>
-        <input type = "text" id = "typefileText" name = "typeFile" value ="PowerPoint">
+        <input type = "text" id = "nameText" name = "name" value = "Curs2">
       </div>
 
 			<div id = "descriptionId">
@@ -55,23 +44,13 @@ if(!isset($_SESSION['USERNAME']))
 				<input type = "text" id = "descriptionText" name = "description" value ="Course TW">
 			</div>
 
-			<div id = "uploadedonId">
-				Uploaded on: <br>
-				<input type = "text" id = "uploadedonText" name = "uploadedOn" value ="23 March 2019">
-			</div>
-
-			<div id = "versionId">
-				Version: <br>
-				<input type = "text" id = "versionText" name = "version" value = "1.0">
-			</div>
-
 			<div id = "tagId">
 				Tags: <br>
-				<input type = "text" id = "tagText" name = "tag" value = "Course, School, TW">
+				<input type = "text" id = "tagsText" name = "tags" value = "Course, School, TW">
 			</div>
 
       <div id = "saveId">
-        <input type = "submit" value = "Save" id = "saveText">
+        <input type = "submit" value = "Save" name="modify-button" id = "saveText">
       </div>
 
     </form>
