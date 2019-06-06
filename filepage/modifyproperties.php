@@ -1,7 +1,11 @@
 <?php
 session_start();
 if(!isset($_SESSION['USERNAME']))
+{
   header("Location: ../index.php?access=denied");
+  exit();
+}
+  $_SESSION['FID']=$_GET['fid'];
  ?>
 
 <!DOCTYPE html>

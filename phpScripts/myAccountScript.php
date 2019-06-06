@@ -15,7 +15,6 @@ require 'database.php';
       mysqli_stmt_execute($stmt);
   }
 
-
   $res = mysqli_stmt_get_result($stmt);
   $numOfResults = mysqli_num_rows($res);
 
