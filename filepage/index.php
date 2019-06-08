@@ -17,12 +17,15 @@ if(!isset($_SESSION['USERNAME']))
 	</head>
 	<body>
 		<header> FOU </header>
-		<div class="buttonsList">
+    <div class="buttonsList">
 			<a href="../myAccountpage/index.php">My Files </a>
-		  <a href="../myAccountpage/index.php">All Files</a>
+		  <a href="../allFilespage/index.php">All Files</a>
 		  <a href="../addfilepage/index.php">Add Files</a>
 		  <a href="../logoutpage/index.php">Logout</a>
-			<input type="text" placeholder="Search...">
+      <form class="" action = "../phpScripts/searchScript.php">
+			  <input type="text" placeholder="Search..." name="searchString" >
+        <input type="submit" name="search-button" value="Search">
+      </form>
 		</div>
 
     <h2> My file </h2>
@@ -32,7 +35,7 @@ if(!isset($_SESSION['USERNAME']))
   echo '<a href = "../filepage/modifyproperties.php?fid='
   . $var . '">' .  'Modify File</a>';
     echo '  <a href = "#"> Download </a>';
-      echo '<a href = "../filepage/delete.php"> Delete </a>';
+      echo '<a href = "../filepage/delete.php?fid='. $var .'"> Delete </a>';
     echo '</div>';
 
     require '../phpScripts/filePageScript.php';

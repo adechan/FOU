@@ -55,22 +55,49 @@ while(file_exists($fileLocation . $fileNameModified . "." . $fileExtension))
 }
 
 //update row
-$sql = "UPDATE files SET NAME= ?, description = ?, tags = ? WHERE id= ?";
+$sql = "UPDATE files SET NAME= ?, description = ? WHERE id= ?";
 $stmt = mysqli_stmt_init($connection);
 
 if (!mysqli_stmt_prepare($stmt,$sql))
 {
   header("Location: ../filepage/modifyProperties.php?error=sql");
+  exit();
 }
 else
 {
-  mysqli_stmt_bind_param($stmt,"sssi",$fileName,$fileDescription,$fileTags,$fileId);
+  mysqli_stmt_bind_param($stmt,"ssi",$fileName,$fileDescription,$fileId);
   mysqli_stmt_execute($stmt);
 
     $fullOldFileName = $fileLocation . $row['NAME'] .'.'. $row['TYPE'];
     $fullNewFileName = $fileLocation . $fileName . '.' . $row['TYPE'];
     //rename the file in storage
-    rename($fullOldFileName,$fullNewFileName);
+    if(!rename($fullOldFileName,$fullNewFileName))
+      header('Location: ../myAccountpage/index.php?error=nofile');
+    //delete Tags
+    $sql = "DELETE FROM tags WHERE id_file = ?";
+    $stmt = mysqli_stmt_init($connection);
+
+    if (!mysqli_stmt_prepare($stmt,$sql))
+    {
+      header("Location: ../filepage/modifyProperties.php?error=sql");
+      exit();
+    }
+    else {
+      mysqli_stmt_bind_param($stmt,"i",$fileId);
+      mysqli_stmt_execute($stmt);
+    }
+    //add new tags into DB
+
+    //delete whitespaces
+    $fileTags = preg_replace('/\s+/', '', $fileTags);
+    //get tags as array
+    $fileTagsArray = explode(",",$fileTags);
+
+    foreach($fileTagsArray as $tag)
+    {
+      mysqli_query($connection,"INSERT INTO tags(id_file,name) VALUES($fileId,'$tag')");
+    }
+
 }
 }
 

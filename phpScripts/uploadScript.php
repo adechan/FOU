@@ -19,7 +19,8 @@ require 'database.php';
     $fileDescription = $_POST['descr'];
     $fileTags = $_POST['tags'];
     $isPublic = $_POST['isPublic'];
-  
+
+
     //CHANGE SIZE TO READABLE
     if($fileSize < 1024){
       $readableSize=$fileSize;
@@ -30,12 +31,15 @@ require 'database.php';
       $readableSize = $readableSize . "kB";
     }
     else {
-      $readableSize = round(($fileSize / 1024),2);
+      $readableSize = round(($fileSize / 1024*1024),2); //double chec
       $readableSize= $readableSize . "MB";
     }
 
     //delete whitespaces
     $fileTags = preg_replace('/\s+/', '', $fileTags);
+    //get tags as array
+    $fileTagsArray = explode(",",$fileTags);
+
 
     //Separate name of file by '.' to get the extension
     //explode returns an array
@@ -78,22 +82,40 @@ require 'database.php';
         move_uploaded_file($fileTempName,$fileFinalDestination);
 
         //insert into DB
-        $sqlCommand = "INSERT INTO Files(NAME, description, location, size, TYPE, created_at_day,created_at_hour, uploaded_by,tags)
-        VALUES(?,?,?,?,?,?,?,?,?);";
+        $sqlCommand = "INSERT INTO Files(NAME, description, location, size, TYPE, created_at_day,created_at_hour, uploaded_by)
+        VALUES(?,?,?,?,?,?,?,?);";
         $sqlStatement = mysqli_stmt_init($connection);
         if(!mysqli_stmt_prepare($sqlStatement,$sqlCommand))
-          {echo "Sql error"; exit();}
+          {echo "Sql error insert file private"; exit();}
           else
           {
             $currentDay=date("Y-m-d");
             $currentHour=date("H:i:s");
             $storageLocation =  $_SESSION['USERNAME'];
-          mysqli_stmt_bind_param($sqlStatement,"sssssssss",$fileNameNoExtension,$fileDescription,$storageLocation,$readableSize,
-          $fileExtension,$currentDay,$currentHour,$_SESSION['USERNAME'],$fileTags);
+          mysqli_stmt_bind_param($sqlStatement,"ssssssss",$fileNameNoExtension,$fileDescription,$storageLocation,$readableSize,
+          $fileExtension,$currentDay,$currentHour,$_SESSION['USERNAME']);
           mysqli_stmt_execute($sqlStatement);
+          //insert tags into tags tags table
 
+          $sqlCommand = "INSERT INTO tags(id_file,name) VALUES (?,?)";
+          $sqlStatement = mysqli_stmt_init($connection);
+
+          if(!mysqli_stmt_prepare($sqlStatement,$sqlCommand))
+            {echo "Sql error insert tags failure private "; exit();}
+            else
+            {
+            $sqlCount = "SELECT max(id) as max from files";
+            $res = mysqli_query($connection,$sqlCount);
+            $row = mysqli_fetch_assoc($res);
+            $intResult = (int) $row['max'];
+            echo "<h1> ". $intResult . "</h1>";
+            foreach($fileTagsArray as $tag)
+            {
+              mysqli_query($connection,"INSERT INTO tags(id_file,name) VALUES($intResult,'$tag')");
+            }
           }
           echo 'uploaded to private. insertat in db';
+        }
         }// CLOSE IF (is private)
         else // file is public
         {
@@ -113,8 +135,8 @@ require 'database.php';
               move_uploaded_file($fileTempName,$fileFinalDestination);
 
               //insert into DB
-              $sqlCommand = "INSERT INTO Files(NAME, description, location, size, TYPE, created_at_day,created_at_hour, uploaded_by, tags)
-              VALUES(?,?,?,?,?,?,?,?,?);";
+              $sqlCommand = "INSERT INTO Files(NAME, description, location, size, TYPE, created_at_day,created_at_hour, uploaded_by)
+              VALUES(?,?,?,?,?,?,?,?);";
               $sqlStatement = mysqli_stmt_init($connection);
               if(!mysqli_stmt_prepare($sqlStatement,$sqlCommand))
                 {echo "Sql error"; exit();}
@@ -123,9 +145,28 @@ require 'database.php';
                   $currentDay=date("Y-m-d");
                   $currentHour=date("H:i:s");
                   $storageLocation = "PUBLIC_FILES";
-                mysqli_stmt_bind_param($sqlStatement,"sssssssss",$fileNameNoExtension,$fileDescription,$storageLocation,$readableSize,
-                $fileExtension,$currentDay,$currentHour,$_SESSION['USERNAME'],$fileTags);
+                mysqli_stmt_bind_param($sqlStatement,"ssssssss",$fileNameNoExtension,$fileDescription,$storageLocation,$readableSize,
+                $fileExtension,$currentDay,$currentHour,$_SESSION['USERNAME']);
                 mysqli_stmt_execute($sqlStatement);
+                //upload to Tags
+                $sqlCommand = "INSERT INTO tags(id_file,name) VALUES (?,?)";
+                $sqlStatement = mysqli_stmt_init($connection);
+
+                if(!mysqli_stmt_prepare($sqlStatement,$sqlCommand))
+                  {echo "Sql error insert tags failure public "; exit();}
+                  else
+                  {
+                  $sqlCount = "SELECT max(id) as max from files";
+                  $res = mysqli_query($connection,$sqlCount);
+                  $row = mysqli_fetch_assoc($res);
+                  $intResult = (int) $row['max'];
+                  echo "<h1> ". $intResult . "</h1>";
+                  foreach($fileTagsArray as $tag)
+                  {
+                    mysqli_query($connection,"INSERT INTO tags(id_file,name) VALUES($intResult,'$tag')");
+                  }
+                }
+
                 echo 'uploaded to '. $storageLocation . "<br>";
                 echo $fileFinalDestination . "<br>";
                 }

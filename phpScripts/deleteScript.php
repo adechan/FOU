@@ -6,33 +6,52 @@
 // TODO: security
 // TODO: delete dummy values
 
-  //will get from POST method
   //after pagination is done
-  $fileName = 'FEAF';
-  $fileExtension = 'txt';
-  $isPrivate=false;
-  $rootStorage= '../FileStorage';
-  $user = $_SESSION['USERNAME'];
 
-  //prepare location string
-  if($isPrivate)
-  {$deletePath=$rootStorage . '/'. $_SESSION['USERNAME']. '/' . $fileName . '.' . $fileExtension;}
-  else {$deletePath = $rootStorage . '/' . 'PUBLIC_FILES' . '/' . $fileName . '.' . $fileExtension;}
 
-  //check for permission
-  $sql2 ="SELECT * FROM files WHERE name LIKE '$fileName' AND TYPE LIKE '$fileExtension' AND uploaded_by LIKE '$user'";
-  $result =mysqli_query($connection,$sql2);
+  $fileId = mysqli_real_escape_string($connection, $_SESSION['FID']);
+  $sql = "SELECT * FROM files where id = ? AND uploaded_by LIKE ?";
 
-  if(mysqli_num_rows($result)==0)
+  $stmt = mysqli_stmt_init($connection);
+
+  if (!mysqli_stmt_prepare($stmt,$sql))
   {
-    echo ' bastard you have no acces';
-    header('Location: ../filepage/delete.php?access=denied');
+    header("Location: ../myAccountpage.php?error=sql");
     exit();
   }
   else
   {
+    mysqli_stmt_bind_param($stmt,"is",$fileId,$_SESSION['USERNAME']);
+    mysqli_stmt_execute($stmt);
+
+  }
+  $res = mysqli_stmt_get_result($stmt);
+  if(mysqli_num_rows($res)==0)
+  { echo '-rows';
+    header('Location: ../myAccountpage/index.php?error=noAccess');
+    exit();
+  }
+  $row = mysqli_fetch_assoc($res);
+
+  $fileExtension = $row['TYPE'];
+
+  if($row['uploaded_by']==$row['location'])
+  {
+    $isPrivate=true;
+    $deletePath = '../FileStorage/'. $row['uploaded_by'] .'/'.$row['NAME'] . '.' . $row['TYPE'];
+    echo $deletePath;
+
+  }
+  else
+  {
+    $isPrivate=false;
+    $deletePath = '../FileStorage/PUBLIC_FILES/'.$row['NAME'] . '.'. $row['TYPE'];
+    echo $deletePath;
+  }
+
+
   //prepare sql
-  $sql = "DELETE FROM files WHERE NAME LIKE ? AND TYPE LIKE ? AND uploaded_by LIKE ?;";
+  $sql = "DELETE FROM files WHERE id=? AND uploaded_by LIKE ?;";
   $stmt = mysqli_stmt_init($connection);
 
   if(!mysqli_stmt_prepare($stmt,$sql))
@@ -42,7 +61,7 @@
   }
   else // delete from database
   {
-    mysqli_stmt_bind_param($stmt,"sss",$fileName,$fileExtension,$_SESSION['USERNAME']);
+    mysqli_stmt_bind_param($stmt,"is",$fileId,$_SESSION['USERNAME']);
     mysqli_stmt_execute($stmt);
     echo 'delete succes'."\n";
   }
@@ -50,7 +69,7 @@
 //delete from fileSystem
   if(!unlink($deletePath))
   {
-    header('Location: ../filepage/delete.php?deleteError');
+    header('Location: ../myAccountpage/index.php?error=deleteError');
     exit();
   }
   else {
@@ -58,6 +77,6 @@
   }
 
   echo $deletePath;
-  }
+
 
  ?>

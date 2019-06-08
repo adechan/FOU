@@ -21,12 +21,15 @@ if(!isset($_SESSION['USERNAME']))
 	</head>
 	<body>
 		<header> FOU </header>
-		<div class="buttonsList">
+    <div class="buttonsList">
 			<a href="../myAccountpage/index.php">My Files </a>
 		  <a href="../allFilespage/index.php">All Files</a>
 		  <a href="../addfilepage/index.php">Add Files</a>
 		  <a href="../logoutpage/index.php">Logout</a>
-			<input type="text" placeholder="Search...">
+      <form class="" action = "../phpScripts/searchScript.php">
+			  <input type="text" placeholder="Search..." name="searchString" >
+        <input type="submit" name="search-button" value="Search">
+      </form>
 		</div>
 
     <h2> Modify Properties </h2>
