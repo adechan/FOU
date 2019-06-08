@@ -38,7 +38,7 @@ if(!isset($_SESSION['USERNAME']))
       </div>
 
       <div class = "buttonsList3">
-        <a href = "#" id = "yes"> Yes </a>
+        <a href = "../phpScripts/deleteScript.php?action=yes" id = "yes"> Yes </a>
         <a href = "../filepage/index.php" id = "no"> No </a>
       </div>
 

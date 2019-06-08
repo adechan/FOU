@@ -26,52 +26,17 @@ if(!isset($_SESSION['USERNAME']))
 		</div>
 
     <h2> My file </h2>
+<?php
+  $var = $_GET['fid'];
+  echo '<div class = "buttonsList2">';
+  echo '<a href = "../filepage/modifyproperties.php?fid='
+  . $var . '">' .  'Modify File</a>';
+    echo '  <a href = "#"> Download </a>';
+      echo '<a href = "../filepage/delete.php"> Delete </a>';
+    echo '</div>';
 
-    <div class = "buttonsList2">
-      <a href = "../filepage/modifyproperties.html"> Modify File</a>
-      <a href = "#"> Download </a>
-      <a href = "../filepage/delete.html"> Delete </a>
-    </div>
-
-		<table class="detailsFile">
-			  <tr>
-			    <th> Name </th>
-          <td> Curs2 </td>
-			  </tr>
-
-			  <tr>
-          <th> Author </th>
-  			  <td> Buraga S </td>
-			  </tr>
-
-			  <tr>
-			    <th> Type of file </th>
-          <td> PowerPoint </td>
-			  </tr>
-
-			  <tr>
-			    <th> Description </th>
-          <td> Course TW </td>
-			  </tr>
-
-			  <tr>
-			    <th> Uploaded on </th>
-          <td> 23 March 2019 </td>
-			  </tr>
-
-			  <tr>
-			    <th> Version </th>
-          <td> 1.0 </td>
-				</tr>
-
-				<tr>
-				 <th> Tags </th>
-					<td> Course, School, TW</td>
-			 </tr>
-
-
-			</table>
-
+    require '../phpScripts/filePageScript.php';
+?>
        <br>
        <br>
 
