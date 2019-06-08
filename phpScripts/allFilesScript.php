@@ -1,10 +1,10 @@
 <?php
-
 require 'database.php';
 
   $resultsPerPage =10;
   $location = 'PUBLIC_FILES';
 
+//get required files
   $sql = "SELECT * FROM files WHERE location LIKE ?";
   $stmt = mysqli_stmt_init($connection);
   if(!mysqli_stmt_prepare($stmt,$sql))

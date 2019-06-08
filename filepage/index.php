@@ -46,7 +46,6 @@ if(!isset($_SESSION['USERNAME']))
 			<footer>
 				<nav>
 					<a href="../contactpage/index.php">Contact</a>
-					<a href="../feedbackpage/index.php">Feedback</a>
 				</nav>
 			</footer>
 

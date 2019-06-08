@@ -70,7 +70,6 @@ session_start();
 <footer>
   <nav>
     <a href="../contactpage/index.php">Contact</a>
-    <a href="../feedbackpage/index.php">Feedback</a>
   </nav>
 </footer>
 
