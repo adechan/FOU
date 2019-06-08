@@ -3,8 +3,22 @@ require 'database.php';
   if(isset($_GET['fid']))
   {
     $fileId = $_GET['fid'];
+
+    $sqlTags = "SELECT name from tags WHERE id_file = ". $fileId;
+    $sqlRes = mysqli_query($connection,$sqlTags);
+    $numberOfRows = mysqli_num_rows($sqlRes);
+
+    $tagsToPrint = array();
+    for($i=0; $i<$numberOfRows; $i++)
+    {
+    $row = mysqli_fetch_assoc($sqlRes);
+    array_push($tagsToPrint,$row['name']);
+  }
+
+
     $sql = "SELECT * FROM files WHERE id = ?
     AND (uploaded_by like ? OR location like 'PUBLIC_FILES')";
+
     $stmt = mysqli_stmt_init($connection);
     if (!mysqli_stmt_prepare($stmt,$sql))
     {
@@ -44,14 +58,19 @@ require 'database.php';
          echo '</tr>';
 
          echo '<tr>';
+         echo '<th>' . 'Tags'. '</th>';
+         echo '<td>';
+         if(!empty($tagsToPrint))
+          foreach ( $tagsToPrint as $tag)
+            echo $tag . ", ";
+         echo '</td>';
+         echo '</tr>';
+
+         echo '<tr>';
          echo '<th>' . 'Uploaded On'. '</th>';
          echo '<td>' . $row['created_at_day'] . '</td>';
          echo '</tr>';
 
-         echo '<tr>';
-         echo '<th>' . 'Tags'. '</th>';
-         echo '<td>' . $row['tags'] . '</td>';
-         echo '</tr>';
 
          echo '</table>';
        }
