@@ -34,7 +34,7 @@ if(!isset($_SESSION['USERNAME']))
   echo '<div class = "buttonsList2">';
   echo '<a href = "../filepage/modifyproperties.php?fid='
   . $var . '">' .  'Modify File</a>';
-    echo '  <a href = "#"> Download </a>';
+    echo '<a href = "../phpScripts/downloadScript.php?fid='. $var .'"> Download </a>';
       echo '<a href = "../filepage/delete.php?fid='. $var .'"> Delete </a>';
     echo '</div>';
 

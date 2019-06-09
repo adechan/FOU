@@ -29,10 +29,13 @@ if(!isset($_SESSION['USERNAME']))
 		</div>
 
     <?php
-    if(!isset($_GET['searchString']))
-      require '../phpScripts/allFilesScript.php';
-    else
+    if(isset($_GET['searchString']))
       require '../phpScripts/searchScript.php';
+    else if (isset($_GET['by']) && isset($_GET['all']))
+          require '../phpScripts/groupByScript.php';
+         else
+            require '../phpScripts/allFilesScript.php';
+
       ?>
 
 
@@ -40,9 +43,11 @@ if(!isset($_SESSION['USERNAME']))
 			<div class="buttonContainer">
 			  <button class="dropButton">Group By</button>
 			  <div class="buttonContent">
-			    <a href="#">Author</a>
-			    <a href="#">Program</a>
-			  </div>
+        <?php
+            echo'<a href="../allFilespage/index.php?by=author&all=true">Author</a>';
+			       echo'<a href="../allFilespage/index.php?by=program&all=true">Program</a>';
+        ?>
+        </div>
 			</div>
 
 			<footer>

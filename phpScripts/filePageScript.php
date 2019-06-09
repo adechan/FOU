@@ -30,9 +30,16 @@ require 'database.php';
        mysqli_stmt_execute($stmt);
        $res = mysqli_stmt_get_result($stmt);
        $row = mysqli_fetch_assoc($res);
+       if($row['uploaded_by']!=$_SESSION['USERNAME'] && $row['location']!='PUBLIC_FILES')
+       {
+         header("Location: ../myAccountpage/index.php?noAcces");
+         exit();
+       }
+
        if(empty($row))
        {
          header("Location: ../myAccountpage/index.php?noSuchfile");
+         exit();
        }
        else //only one row can be returned, print values
        {
@@ -71,8 +78,14 @@ require 'database.php';
          echo '<td>' . $row['created_at_day'] . '</td>';
          echo '</tr>';
 
+         echo '<tr>';
+         echo '<th>' . 'Size'. '</th>';
+         echo '<td>' . $row['size'] . '</td>';
+         echo '</tr>';
+
 
          echo '</table>';
+
        }
      }
 
