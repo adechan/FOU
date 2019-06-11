@@ -2,12 +2,6 @@
   session_start();
 
   require 'database.php';
-  // TODO: combine if unlink &mysqli clauses
-  // TODO: security
-  // TODO: delete dummy values
-
-  //after pagination is done
-
 
   $fileId = mysqli_real_escape_string($connection, $_SESSION['FID']);
   $sql = "SELECT * FROM files where id = ? AND uploaded_by LIKE ?";
@@ -27,7 +21,7 @@
   }
   $res = mysqli_stmt_get_result($stmt);
   if(mysqli_num_rows($res)==0)
-  { echo '-rows';
+  {
     header('Location: ../myAccountpage/index.php?error=noAccess');
     exit();
   }
@@ -49,7 +43,6 @@
     echo $deletePath;
   }
 
-
   //prepare sql
   $sql = "DELETE FROM files WHERE id=? AND uploaded_by LIKE ?;";
   $stmt = mysqli_stmt_init($connection);
@@ -63,7 +56,7 @@
   {
     mysqli_stmt_bind_param($stmt,"is",$fileId,$_SESSION['USERNAME']);
     mysqli_stmt_execute($stmt);
-    echo 'delete succes'."\n";
+
   }
 
 //delete from fileSystem
@@ -73,10 +66,9 @@
     exit();
   }
   else {
-    echo 'delete succes';
-  }
+    header('Location: ../myAccountpage/index.php?delete=Succes');
 
-  echo $deletePath;
+  }
 
 
  ?>

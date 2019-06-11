@@ -13,8 +13,6 @@
 
   function onRegisterClick()
   {
-    // TODO:  check if mail exists in database
-
     require 'database.php';
 
     $username = $_GET['user'];

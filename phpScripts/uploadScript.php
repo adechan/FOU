@@ -3,7 +3,7 @@ session_start();
 if(!isset($_SESSION['USERNAME']))
   header("Location: ../index.php?access=denied");
 
-// TODO: check errors & change responses/pages
+//clamav call
 require 'database.php';
 
 
@@ -31,7 +31,7 @@ require 'database.php';
       $readableSize = $readableSize . "kB";
     }
     else {
-      $readableSize = round(($fileSize / 1024*1024),2); //double chec
+      $readableSize = round(($fileSize /1048576),2); //double chec
       $readableSize= $readableSize . "MB";
     }
 
@@ -114,7 +114,7 @@ require 'database.php';
               mysqli_query($connection,"INSERT INTO tags(id_file,name) VALUES($intResult,'$tag')");
             }
           }
-          echo 'uploaded to private. insertat in db';
+            header('Location: ../addfilepage/index.php?upload=succes');
         }
         }// CLOSE IF (is private)
         else // file is public
@@ -154,8 +154,8 @@ require 'database.php';
 
                 if(!mysqli_stmt_prepare($sqlStatement,$sqlCommand))
                   {echo "Sql error insert tags failure public "; exit();}
-                  else
-                  {
+                else
+                {
                   $sqlCount = "SELECT max(id) as max from files";
                   $res = mysqli_query($connection,$sqlCount);
                   $row = mysqli_fetch_assoc($res);
@@ -167,19 +167,18 @@ require 'database.php';
                   }
                 }
 
-                echo 'uploaded to '. $storageLocation . "<br>";
-                echo $fileFinalDestination . "<br>";
+                header('Location: ../addfilepage/index.php?upload=succes');
                 }
         }//else file is public
       }//filesize IF
       else
       {
-          echo 'File is too large!';
+          header('Location: ../addfilepage/index.php?error=fileToLarge');
       }
     }//fileError IF
     else
     {
-        echo 'Error uploading file!';
+        header('Location: ../addfilepage/index.php?error=upload');
     }
   }//isset IF
 

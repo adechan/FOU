@@ -22,8 +22,12 @@ if(!isset($_SESSION['USERNAME']))
 		  <a href="../myAccountpage/index.php">All Files</a>
 		  <a href="../addfilepage/index.php">Add Files</a>
 		  <a href="../logoutpage/index.php">Logout</a>
-			<input type="text" placeholder="Search...">
-		</div>
+      <form class="" action = "../allFilespage/index.php">
+        <input type="text" placeholder="Search..." name="searchString" >
+        <input type="submit" name="search-button" value="Search">
+      </form>
+    </div>
+
 
     <h2> Log out </h2>
 
@@ -48,7 +52,6 @@ if(!isset($_SESSION['USERNAME']))
 			<footer>
 				<nav>
 					<a href="../contactpage/index.php">Contact</a>
-					<a href="../feedbackpage/index.php">Feedback</a>
 				</nav>
 			</footer>
 
