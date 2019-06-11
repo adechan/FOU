@@ -46,6 +46,8 @@ h2
   width: 20%;
 }
 
+
+
 .buttonsList a:hover
 {
   background-color: #86C232;
@@ -124,6 +126,11 @@ input[type = text], input[type = password]
   color: white;
   left:-20px;
   top: 10px;
+}
+
+#userError, #passError {
+  font-size: 9px;
+  color: #F59D9D;
 }
 
 input[type = submit]

@@ -118,7 +118,7 @@ h2
     align-items: center;
 }
 
-input[type = submit]
+#saveText
 {
   font-family: 'Noto Sans', sans-serif;
   font-size:15px;
@@ -141,7 +141,7 @@ input[type = submit]
   color: #A1EE2F;
 }
 
-input[type = text]
+#nameText, #descriptionText, #tagsText
 {
   border-radius: 6px;
   border: 1px #222629 solid;
@@ -241,4 +241,36 @@ nav a
   color: white;
   padding-left: 20px;
   padding-right: 20px;
+}
+
+
+/* TOP NAVIGATION buttons */
+.buttonsList {
+  width: 100vw;
+  background-color: #222629;
+  overflow: auto;
+  font-family: Helvetica;
+}
+
+.buttonsList a {
+  text-align: center ;
+  text-decoration: none;
+  color: white ;
+  float: left;
+  padding: 10px ;
+  font-size: 20px;
+  width: 10%;
+  text-align: center;
+}
+.buttonsList input{
+  text-align: center ;
+  text-decoration: none;
+  color: white ;
+  float: left;
+  padding: 10px ;
+  font-size: 20px;
+  width: 10%;
+  text-align: center;
+  background-color:#222629 ;
+  border:0;
 }
