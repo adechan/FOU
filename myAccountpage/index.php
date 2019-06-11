@@ -36,7 +36,7 @@ if(!isset($_SESSION['USERNAME']))
     else if (isset($_GET['by']) && isset($_GET['all']))
           require '../phpScripts/groupByScript.php';
          else
-            require '../phpScripts/allFilesScript.php';
+            require '../phpScripts/myAccountScript.php';
 
       ?>
 

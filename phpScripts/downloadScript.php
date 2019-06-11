@@ -21,9 +21,7 @@
    $filePath='../FileStorage/' . $row['location'] .'/';
    $fileName = $filePath . $fileName = $row['NAME'] .'.'.$row['TYPE'];
 
-   // echo $fileName . "<BR>";
     $contentType = mime_content_type ( $fileName);
-// exit();
 
 header('Content-Description: File Transfer');
 header('Content-Type:'. $contentType);
@@ -32,9 +30,6 @@ header('Expires: 0');
 header('Cache-Control: must-revalidate');
 header('Pragma: public');
 header('Content-Length: ' . filesize($fileName));
-readfile($fileName);
-
-
 
 readfile ($fileName);
 exit();

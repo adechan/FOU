@@ -2,8 +2,6 @@
 //if user got here by pressing the register button
   if( isset($_POST['register-button']))
   {
-    // TODO:  check if mail exists in database
-
     require 'database.php';
 
     $username = $_POST['user'];

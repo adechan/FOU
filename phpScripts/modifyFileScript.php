@@ -90,6 +90,8 @@ else
 
     //delete whitespaces
     $fileTags = preg_replace('/\s+/', '', $fileTags);
+    $fileTags = preg_replace('/"/','',$fileTags);
+    $fileTags = preg_replace("/'/",'',$fileTags);
     //get tags as array
     $fileTagsArray = explode(",",$fileTags);
 

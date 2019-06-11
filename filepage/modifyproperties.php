@@ -43,17 +43,17 @@ if(!isset($_SESSION['USERNAME']))
 
       <div id = "nameId">
         Name: <br>
-        <input type = "text" id = "nameText" name = "name" value = "Curs2">
+        <input type = "text" id = "nameText" name = "name" placeholder= "Name">
       </div>
 
 			<div id = "descriptionId">
 				Description: <br>
-				<input type = "text" id = "descriptionText" name = "description" value ="Course TW">
+				<input type = "text" id = "descriptionText" name = "description" placeholder ="File description">
 			</div>
 
 			<div id = "tagId">
 				Tags: <br>
-				<input type = "text" id = "tagsText" name = "tags" value = "Course, School, TW">
+				<input type = "text" id = "tagsText" name = "tags" placeholder="Comma separated tags">
 			</div>
 
       <div id = "saveId">
@@ -71,7 +71,6 @@ if(!isset($_SESSION['USERNAME']))
 			<footer>
 				<nav>
 					<a href="../contactpage/index.php">Contact</a>
-					<a href="../feedbackpage/index.php">Feedback</a>
 				</nav>
 			</footer>
 
