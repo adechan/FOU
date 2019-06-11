@@ -16,6 +16,10 @@ header
    font-family: 'Lobster',cursive;
 }
 
+#emailError, #userError, #passError,#passConfirmError {
+  font-size: 9px;
+  color: #F59D9D;
+}
 
 h2
 {
@@ -176,6 +180,6 @@ input[type = submit]
   font-size: 15px;
   color: white;
   text-decoration: none;
-  margin-top: 300px;
+  margin-top: 350px;
   margin-left: -250px;
 }

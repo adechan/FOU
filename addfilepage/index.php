@@ -21,10 +21,12 @@ session_start();
 		  <a href="../allFilespage/index.php">All Files</a>
 		  <a href="../addfilepage/index.php">Add Files</a>
 		  <a href="../logoutpage/index.php">Logout</a>
+
       <form class="" action = "../phpScripts/searchScript.php">
 			  <input type="text" placeholder="Search..." name="searchString" >
-        <input type="submit" name="search-button" value="Search">
+        <input type="submit" id = "search-button" name="search-button" value="Search">
       </form>
+
 		</div>
 
     <h2> Add a file </h2>

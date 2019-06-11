@@ -3,8 +3,8 @@
 
   require 'database.php';
   // TODO: combine if unlink &mysqli clauses
-// TODO: security
-// TODO: delete dummy values
+  // TODO: security
+  // TODO: delete dummy values
 
   //after pagination is done
 

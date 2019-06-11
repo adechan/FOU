@@ -28,7 +28,7 @@ if(!isset($_SESSION['USERNAME']))
 		  <a href="../logoutpage/index.php">Logout</a>
       <form class="" action = "../phpScripts/searchScript.php">
 			  <input type="text" placeholder="Search..." name="searchString" >
-        <input type="submit" name="search-button" value="Search">
+        <input type="submit" name="search-button" id="search-button" value="Search">
       </form>
 		</div>
 

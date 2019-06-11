@@ -70,9 +70,11 @@ else
 
     $fullOldFileName = $fileLocation . $row['NAME'] .'.'. $row['TYPE'];
     $fullNewFileName = $fileLocation . $fileName . '.' . $row['TYPE'];
+
     //rename the file in storage
     if(!rename($fullOldFileName,$fullNewFileName))
       header('Location: ../myAccountpage/index.php?error=nofile');
+      
     //delete Tags
     $sql = "DELETE FROM tags WHERE id_file = ?";
     $stmt = mysqli_stmt_init($connection);
