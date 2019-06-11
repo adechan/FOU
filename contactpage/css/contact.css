@@ -14,7 +14,13 @@ header
    color: #86C232;
    font-size: 45px;
    font-family: 'Lobster',cursive;
+   text-decoration: none;
 }
+  #fouID
+  {
+    text-decoration: none;
+    color: red;
+  }
 
 h2
 {
@@ -74,6 +80,7 @@ nav a
   padding-left: 20px;
   padding-right: 20px;
 }
+
 
 
 .signin-box

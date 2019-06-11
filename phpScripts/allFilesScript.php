@@ -1,10 +1,10 @@
 <?php
-
 require 'database.php';
 
   $resultsPerPage =10;
   $location = 'PUBLIC_FILES';
 
+//get required files
   $sql = "SELECT * FROM files WHERE location LIKE ?";
   $stmt = mysqli_stmt_init($connection);
   if(!mysqli_stmt_prepare($stmt,$sql))
@@ -34,6 +34,7 @@ require 'database.php';
 
   $sql = "SELECT * FROM files WHERE location LIKE ? LIMIT " . $startRow . "," . $resultsPerPage;
   $stmt = mysqli_stmt_init($connection);
+
   if(!mysqli_stmt_prepare($stmt,$sql))
   {
     header("Location: index.php?error=sql");
@@ -43,6 +44,7 @@ require 'database.php';
       mysqli_stmt_bind_param($stmt,"s",$location);
       mysqli_stmt_execute($stmt);
   }
+
   $res = mysqli_stmt_get_result($stmt);
 
   echo '			<table class="files">
@@ -68,8 +70,9 @@ require 'database.php';
 
   //print pages buttons
   echo '<div class="centerPagination">
-  				<div class="pagination">';
-  for($pageCounter=1;$pageCounter<=$numOfPages;$pageCounter++)
+          <div class="pagination">';
+          
+  for($pageCounter=1; $pageCounter<=$numOfPages; $pageCounter++)
     echo '<a href="index.php?page=' .$pageCounter . '">' . $pageCounter . '</a>';
   echo '</div>
   			 </div>';

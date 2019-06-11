@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_PARSE);
 session_start();
 if(!isset($_SESSION['USERNAME']))
   header("Location: ../index.php?access=denied");
@@ -21,28 +22,37 @@ if(!isset($_SESSION['USERNAME']))
 		  <a href="../allFilespage/index.php">All Files</a>
 		  <a href="../addfilepage/index.php">Add Files</a>
 		  <a href="../logoutpage/index.php">Logout</a>
-      <form class="" action = "../phpScripts/searchScript.php">
+      <form class="" action = "../allFilespage/index.php">
 			  <input type="text" placeholder="Search..." name="searchString" >
         <input type="submit" name="search-button" value="Search">
       </form>
 		</div>
 
-    <?php require '../phpScripts/allFilesScript.php'; ?>
+    <?php
+    if(isset($_GET['searchString']))
+      require '../phpScripts/searchScript.php';
+    else if (isset($_GET['by']) && isset($_GET['all']))
+          require '../phpScripts/groupByScript.php';
+         else
+            require '../phpScripts/allFilesScript.php';
+
+      ?>
 
 
 			<!-- container for the dropup Group By button-->
 			<div class="buttonContainer">
 			  <button class="dropButton">Group By</button>
 			  <div class="buttonContent">
-			    <a href="#">Author</a>
-			    <a href="#">Program</a>
-			  </div>
+        <?php
+            echo'<a href="../allFilespage/index.php?by=author&all=true">Author</a>';
+			       echo'<a href="../allFilespage/index.php?by=program&all=true">Program</a>';
+        ?>
+        </div>
 			</div>
 
 			<footer>
 				<nav>
 					<a href="../contactpage/index.php">Contact</a>
-					<a href="../feedbackpage/index.php"> Feedback</a>
 				</nav>
 			</footer>
 	</body>
