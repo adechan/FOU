@@ -22,128 +22,141 @@
 </head>
   <body>
     <article itemscope itemtype="http://schema.org/ScholarlyArticle">
+    <header>
+      <h1 itemprop="name"> FOU (File Online Upload) </h1>
+    </header>
 
-      <header>
-        <h1 itemprop="name">FOU - Project report</h1>
-      </header>
+    <h2 role="doc-subtitle"> Project Authors </h2>
 
-      <h2 role="doc-subtitle">Project Authors</h2>
+    <section itemprop="articleSection">
 
-      <section itemprop="articleSection">
+      <ol>
+        <li itemscope itemtype="http://schema.org/Person">
+          <a href="http://github.com/adechan" itemprop="url">
+            <span itemprop="givenName"> Andreea </span>
+            <span property="familyName"> Rindasu </span>
+          </a>
+        </li>
+
+        <li itemscope itemtype="http://schema.org/Person">
+          <a href="http://github.com/Mobius98" itemprop="url">
+            <span itemprop="givenName"> Cosmin </span>
+            <span itemprop="schema:familyName"> Sescu </span>
+          </a>
+        </li>
+      </ol>
+
+      <ol>
+        <li id="scienceai" itemscope itemtype="https://schema.org/EducationalOrganization">
+          <a href="http://www.info.uaic.ro" itemprop="url">
+            <span itemprop="name"> Facultatea de Informatica Iasi </span>
+          </a>
+        </li>
+      </ol>
+
+    </section>
+
+    <section itemprop="articleSection">
+
+      <h2 role="doc-subtitle"> Project description </h2>
+      <p itemprop="about">
+          This project aims to be a web application which allows users to transfer files from their local computer using an account. If the files 
+          exists already in the web application, it would save the older versions, so the user could access them anytime. The system allows
+          adding suplimentary meta-data for every uploaded document such as description, tags. Also, the user has the chance to group the
+          uploaded files by author or by program. It also has functions for deleting (if the file is yours), searching or downloading files.  
+      </p>
+
+    </section>
+
+  </section>
+
+  <h2 role="doc-subtitle"> Architecture </h2>
+  <section item="articleSection">
+
+    <h3 role="doc-subtitle"> 1. System Context Diagram </h3>
+    <p itempro="doc-subtitle"> 
+        The System Context Diagram shows how the web application fits into the world in terms of the people who use it, which in our case are
+        the people who have an account and that want to upload or download files, and the other software systems it interacts with. 
+    </p>  
+    <img src = "../ScholarlyHTML/Diagrams/1SystemContext.PNG" alt="architecture"> <br><br>
+
+    <h3 role="doc-subtitle"> 2. Container Diagram </h3>
+    <p itempro="doc-subtitle">
+        The Container Diagram zooms into the software system, and it shows the containers, which are the web application (which allows users 
+        to make an account, view, upload and download files) and the storage of data. 
+    </p>
+    <img src="../ScholarlyHTML/Diagrams/2Container.PNG" alt="architecture"> <br><br>
+
+
+    <h4 role= "doc-subtitle"> 2.1 Storage of data </h4>
+    <p itempro="doc-subtitle">
+      We used a MySQL Database in order to manage the users of the application and the files uploaded by them. <br>
+      Our database has four tables: 
+      <li> Users (id, email, username, password)</li>
+      <li> Files (id, name, description, location, size, type, created_at_day, uploaded_by, created_at_hour)</li>
+      <li> Tags (id, id_file, name)</li>     
+      <li> Reviews </li>
+      The users can see their own private files (which other users can not see), and the public files (which are public for everyone else).
+    </p>
+    <img src="../ScholarlyHTML/Diagrams/Database_ER.png" alt="architecture"> <br><br>
+
+    <h4 role="doc-subtitle"> Application Flow </h4>
+    <p itempro="doc-subtitle">
+      Starting with the main page, a person would see two buttons: the register button and the login one. Creating an account, the user
+      will be redirected to the login page, where he would insert his personal data. The loaded page has three main buttons: My Files (which
+      shows the user all of the private files the user has uploaded on the website), All Files (which shows the user all of the public files
+      from the website), Add File (which allows the user to upload a new file on the web application). 
+      <br>
+      Also, there is a searching bar which can be used to search informations about some file. 
+    </p>
+    <img src="../ScholarlyHTML/Diagrams/ComponentDiagram.png" alt="architecture"> <br><br>
+
+  </section>
+
+  <section itemprop="articleSection">
+    <h3 role="doc-subtitle"> AJAX </h3>
+    <p role="contentinfo">
+      Register and Login check the inputs (for register: email, username, password, confirm password; for login: username, password) for 
+      errors from the server. It is an asynchronous operation, so the page will be loaded and the response from the server will be loaded when
+      it gets to our application. 
+      <br> 
+      If the server says that an error occurs from one of the inputs, the error is received through ajax so we can print it on the HTML page. 
+      This checks each input. So for example, in register if the first input is wrong (email), it will print a message with the text "Invalid
+      email address", if the next time we write in the input, the email is okay, it will move and check it for errors for the next input ("username").
+    </p>
+  <img src="../ScholarlyHTML/Diagrams/ajax.png" alt="about"><br><br>
+  </section>
+  
+  <section itemprop="articleSection">
+      <h2 role="doc-subtitle"> Tehnologies used </h2>
+      <p itemprop="about">
+        For Frontend we used:
         <ol>
-
-          <li itemscope itemtype="http://schema.org/Person">
-            <a href="  http://github.com/adechan" itemprop="url">
-              <span itemprop="givenName">Andreea </span>
-              <span property="familyName">Rindasu</span>
-            </a>
-          </li>
-
-          <li itemscope itemtype="http://schema.org/Person">
-            <a href="http://github.com/Mobius98" itemprop="url">
-              <span itemprop="givenName">Cosmin</span>
-              <span itemprop="schema:familyName">Sescu</span>
-            </a>
-          </li>
-
-        </ol>
-
+          <li> HTML5: to show the browser how to print the web pages </li>
+          <li> CSS3: to style the pages </li>
+          <li> Javascript: to use it with ajax for the error messages</li> 
+        </ol> <br>
+        For Backend we used:
         <ol>
-          <li id="scienceai" itemscope itemtype="https://schema.org/EducationalOrganization">
-            <a href="http://www.info.uaic.ro" itemprop="url">
-              <span itemprop="name"> Facultatea de Informatica Iasi </span>
-            </a>
-          </li>
-        </ol>
-      </section>
+          <li>
+            PHP: it is interpreted by the web server and it generates HTML code which will be seen by the user
+          </li> 
+        </ol><br>
+        Server APACHE(from XAMPP)<br>
+        For storage data: MySQL server
 
-      <section itemprop="articleSection">
-        <h2 role="doc-subtitle" >Project description</h2>
+      </p>
+    </section>
+    <section itemprop="articleSection">
+        <h2 role="doc-bibliography" >Bibliography</h2>
         <p itemprop="about">
-           This project aims to be a web application which allows users to transfer files from their local computer using an account. If the files 
-           exists already in the web application, it would memorize the older versions, so the user could access them anytime. The system allows
-           adding suplimentary meta-datas for every uploaded document such as description, tags. Also, the user has the chance to group the
-           uploaded files by author or program. It also has functions for deleting (if the file is yours), searching or downloading files.  
+            <a role="doc-bibliography" href="https://www.php.net/docs.php">https://www.php.net/docs.php</a><br>
+            <a role="doc-bibliography" href="https://www.w3schools.com/">https://www.w3schools.com/</a><br>
+            <a role="doc-bibliography" href="https://profs.info.uaic.ro/~busaco/teach/courses/web/">https://profs.info.uaic.ro/~busaco/teach/courses/web/</a> <br>
+          <br>
         </p>
       </section>
-
-      </section>
-      <h2 role="doc-subtitle"> Architecture </h2>
-      <section item="articleSection">
-
-        <h3 role="doc-subtitle"> 1. System Context Diagram </h3>
-        <p itempro="doc-subtitle"> 
-            The System Context Diagram shows how the web application fits into the world in terms of the people who use it, which in our case are
-            the people who have an account and that want to upload or donwload files, and the other software systems it interactics with.
-        </p>  
-        <img src = "1SystemContext.PNG" alt="architecture"> <br><br>
-
-        <h3 role="doc-subtitle"> 2. Container Diagram </h3>
-        <p itempro="doc-subtitle">
-            The Container Diagram zooms into the software system, and it shows the containers, which are the web application (which allows users 
-            to make an account, view, upload and download files) and the storage of data. 
-        </p>
-        <img src="2Container.PNG" alt="architecture"> <br><br>
-
-
-        <h4 role= "doc-subtitle"> 2.1 Storage of data </h4>
-        <p itempro="doc-subtitle">
-          We used a MySQL Database in order to manage the users of the application and the files uploaded by them. <br>
-          Our database has three tables: 
-          <li> Users (id, email, username, password)</li>
-          <li> Files (id, name, description, location, size, type, created_at_day, uploaded_by, created_at_hour)</li>
-          <li> Tags (id, id_file, name)</li>     
-          The users can see their own private files (which other users can not see), and the public files (which are public for everyone else).
-        </p>
-        <img src="Database_ER.png" alt="architecture"> <br><br>
-
-        <h4 role="doc-subtitle"> Application Flow </h4>
-        <p itempro="doc-subtitle">
-          Starting with the main page, a person would see two buttons: the register button and the login one. Creating an account, the user
-          will be redirected to the login page, where he would insert his personal data. The loaded page has three main buttons: My Files (which
-          shows the user all of the private files the user has uploaded on the website), All Files (which shows the user all of the public files
-          from the website), Add File (which allows the user to upload a new file on the page).
-        </p>
-        <img src="ComponentDiagram.png" alt="architecture"> <br><br>
-
-      </section>
-
-      <section itemprop="articleSection">
-        <h3 role="doc-subtitle"> AJAX </h3>
-        <p role="contentinfo">
-          Register and Login check the inputs (for register: email, username, password, confirm password; for login: username, password) for 
-          errors from the server. It is an asynchronous operation, so the page will be loaded and the response from the server will be loaded when
-          it gets to our application. 
-          <br> 
-          If the server says that an error occurs from one of the inputs, it sends the error to the ajax, so we can print it on the HTML page. 
-          This checks input by input. So for example, for register if the first input is wrong (email), it would print a message with the text "Invalid
-          email address", if the next time we write in the input, the email is okay, it would move and check it for errors for the next input ("username").
-        </p>
-      <img src="ajax.png" alt="about"><br><br>
-      </section>
-      
-      <section itemprop="articleSection">
-          <h2 role="doc-subtitle" >Tehnologies used</h2>
-          <p itemprop="about">
-            For Frontend we used: HTML5, CSS3, Javascript <br>
-            For Backend we used: PHP<br>
-            Server APACHE(from XAMPP)<br>
-            For storage data: MySQL server
-
-          </p>
-        </section>
-        <section itemprop="articleSection">
-            <h2 role="doc-bibliography" >Bibliography</h2>
-            <p itemprop="about">
-                <a role="doc-bibliography" href="https://www.php.net/docs.php">https://www.php.net/docs.php</a><br>
-                <a role="doc-bibliography" href="https://www.w3schools.com/">https://www.w3schools.com/</a><br>
-                <a role="doc-bibliography" href="https://stackoverflow.com/">https://stackoverflow.com/</a><br>
-                <a role="doc-bibliography" href="https://css-tricks.com/">https://css-tricks.com/</a><br>
-
-              <br>
-            </p>
-          </section>
-    </article>
+  </article>
 
   </body>
 </html>

@@ -34,9 +34,9 @@ if(!isset($_SESSION['USERNAME']))
 
     <h2> Modify Properties </h2>
 
-    <div class = "buttonsList2">
-      <a href = "../filepage/index.php"> Previous </a>
-    </div>
+	<!-- <div class = "buttonsList2">
+		<a href = "../filepage/index.php"> Previous </a>
+	</div> -->
 
   	<div class = "modifyproperties-box">
     <form class = "form" action = "../phpScripts/modifyFileScript.php">

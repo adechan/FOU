@@ -1,13 +1,5 @@
 
 
-/*
-  Mostly override colours, plus support the article styling.
-  The latter should be made into a separate CSS at some point, that can just be reused by whoever
-  likes it.aa
-*/
-
-
-
 * {
     box-sizing: border-box;
 }
@@ -17,7 +9,7 @@ body {
     color: #434343;
 }
 header {
-    border-top: 8px solid #2196f3;
+    border-top: 8px solid #BDD5E9;
     border-bottom: 2px solid #BDD5E9;
     box-shadow: 2px 0 4px #BCBCBC;
     margin-bottom: 64px;

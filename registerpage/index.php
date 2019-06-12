@@ -29,7 +29,6 @@ session_start();
     But if the result is undefined, then the browser stays on the same page-->
 
     <form id="registerForm" method='post' name="registerForm" action="javascript:void(0);">
-    <!-- <form class = "form" action = "../phpScripts/registerScript.php" method="post"> -->
 
       <!-- EMAIL -->
       <div id = "emailId">

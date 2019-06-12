@@ -57,6 +57,11 @@ h2
   background-color: #86C232;
 }
 
+a{
+  text-decoration: none;
+  color: #86C232;
+}
+
 footer nav
 {
   height:32px;

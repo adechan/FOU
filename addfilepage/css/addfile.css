@@ -16,6 +16,14 @@ header
    font-family: 'Lobster',cursive;
 }
 
+#uploadError{
+  font-size: 10px;
+  color: #F59D9D;
+  margin-top: -20px;
+  margin-left: 20px;
+  padding-bottom: 10px;
+}
+
 h2
 {
   font-family: 'Noto Sans', sans-serif;

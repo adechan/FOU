@@ -31,12 +31,16 @@ if(!isset($_SESSION['USERNAME']))
     <h2> My file </h2>
 <?php
   $var = $_GET['fid'];
+
   echo '<div class = "buttonsList2">';
-  echo '<a href = "../filepage/modifyproperties.php?fid='
-  . $var . '">' .  'Modify File</a>';
-    echo '<a href = "../phpScripts/downloadScript.php?fid='. $var .'"> Download </a>';
-      echo '<a href = "../filepage/delete.php?fid='. $var .'"> Delete </a>';
-    echo '</div>';
+
+  echo '<a href = "../filepage/modifyproperties.php?fid=' . $var . '">' .  'Modify File</a>';
+
+  echo '<a href = "../phpScripts/downloadScript.php?fid='. $var .'"> Download </a>';
+
+  echo '<a href = "../filepage/delete.php?fid='. $var .'"> Delete </a>';
+
+  echo '</div>';
 
     require '../phpScripts/filePageScript.php';
 ?>
